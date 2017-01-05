@@ -1,0 +1,22 @@
+first install=>
+	sudo apt-get install git
+
+configure git=>
+	git config --global user.name "your user name"
+
+	git config --global user.email "email_id"
+create a local repository=>
+	get init my_repository
+	cd my_repository
+	gedit readme
+	gedit mycode.c
+now add above two files in index..
+	git add readme
+	git add mycode.c
+once we have made all changes we commit it
+	git commit -m "some_massage"
+
+now create aa repository on github
+	git remote add origin https:github.com/user_name/my_repository.git
+now push files
+	git push origin master
