@@ -21,6 +21,15 @@ now create aa repository on github
 now push files
 	git push origin master
 	
+	
+in case of =>
+
+raghvendra@raghs-pc:~/raghsgit$ git remote add origin https://github.com/raghsgit/raghsgit.git
+fatal: remote origin already exists.
+
+do=>
+raghvendra@raghs-pc:~/raghsgit$ git remote rm origin
+	
 // on system to download the project
 1) git clone "link"
 2) now edit the files
