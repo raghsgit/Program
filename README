@@ -20,3 +20,13 @@ now create aa repository on github
 	git remote add origin https:github.com/user_name/my_repository.git
 now push files
 	git push origin master
+	
+// on system to download the project
+1) git clone "link"
+2) now edit the files
+3) git add * (it prepares file to upload not upload)
+		if there is a problem one solution is to add file forcefully
+	git add -f *
+		
+4) git commit -m "message" (it also a step before uploading )
+5) git push origin master (it pushes the file)
