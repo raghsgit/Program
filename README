@@ -39,3 +39,8 @@ raghvendra@raghs-pc:~/raghsgit$ git remote rm origin
 		
 4) git commit -m "message" (it also a step before uploading )
 5) git push origin master (it pushes the file)
+
+
+
+//to synchronize with local repository
+git pull origin master
