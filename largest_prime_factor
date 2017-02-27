@@ -1,0 +1,8 @@
+to find largest prime factor of a given number .
+1) find its square root
+2) find prime numbers up to sqre root
+3) check now the largest number which divides it and also update n with n/=prime[i];
+4) if we reaCH AT END OF prime array an d still n is not 1 then remaining n is largest prime factor
+ else 
+	largest prime fa tor was the last prime number which divided n c ompletely..
+
