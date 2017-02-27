@@ -43,4 +43,11 @@ raghvendra@raghs-pc:~/raghsgit$ git remote rm origin
 
 
 //to synchronize with local repository
+first add origin master
+
+git remote add orign https://githubs.com/raghsgit/raghsgit.git
 git pull origin master
+
+//to remove origin master
+
+git remote rm origin
