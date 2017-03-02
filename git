@@ -1,0 +1,13 @@
+//few command to sync your data with local repo
+
+git clone url
+change the pwd to your local project...>
+git remote -v
+git remote add upstream
+git remote -v
+
+git fetch upstream
+git fetch --all
+git checkout master
+git checkout gh-pages
+git merge upstream/master
