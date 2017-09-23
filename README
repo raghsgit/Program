@@ -6,7 +6,7 @@ configure git=>
 
 	git config --global user.email "email_id"
 create a local repository=>
-	get init my_repository
+	git init my_repository
 	cd my_repository
 	gedit readme
 	gedit mycode.c
