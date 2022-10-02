@@ -1,0 +1,89 @@
+#include<iostream>
+#include<vector>
+#include<set>
+#include<bits/stdc++.h>
+using namespace std;
+//four way connected grid//
+void largest_island(vector<vector<int>> &grid,vector<vector<bool>> &visited,int color,int i,int j,int count_color[]){
+    visited[i][j]==true;
+    grid[i][j]=color;
+    count_color[color]++;//for storing the no of count of cells in the connected island
+    int rows=grid.size();
+    int columns=grid[0].size();
+    int dx[]={0,0,1,-1};
+    int dy[]={1,-1,0,0};
+    
+    for(int k=0;k<4;++k){
+        int ni=i+dx[k];
+        int nj=j+dy[k];
+        if(!visited[ni][nj] && grid[ni][nj]==1 && ni>=0 && nj>=0 && ni<rows && nj<columns)
+        {
+            largest_island(grid,visited,color,ni,nj,count_color);
+
+        }
+    }
+}
+int main(){
+    vector<vector<int>> grid={{1,0,0,1,0},
+                              {1,1,0,1,0},
+                              {0,1,0,0,1},
+                              {1,1,0,1,1},
+                              {1,1,0,1,0}
+                             };
+ vector<vector<bool>> visited(5,vector<bool>(5,false));
+ cout<<"printing original grid "<<endl;
+ for(int i=0;i<5;++i){
+    for(int j=0;j<5;++j){
+        cout<<grid[i][j]<<" ";
+    }
+    cout<<endl;
+ }
+ int color_count[10]={0};
+ int count_no_of_island=0;
+  for(int i=0;i<5;++i){
+    for(int j=0;j<5;++j){
+        if(grid[i][j]==1 && !visited[i][j]){
+            count_no_of_island++;
+            largest_island(grid,visited,count_no_of_island,i,j,color_count);
+        }
+    }
+ }
+ cout<<"no of island in the grid is "<<count_no_of_island<<endl;
+ cout<<"the no of cells connected in the each island are "<<endl;
+ int largest=0;
+ for(int i=0;i<=count_no_of_island;i++){
+    cout<<color_count[i]<<" ";
+    if(largest<color_count[i]){
+        largest = color_count[i];
+    }
+ }
+ cout<<endl<<"the largest connected island is "<<largest<<endl;
+ cout<<"do work for making largest island "<<endl;
+ int make_largest_island=0;
+ for(int i=0;i<5;++i){
+    for(int j=0;j<5;++j){
+        set<int> s;
+        if(grid[i][j]==0){
+            int dx[]={0,0,1,-1};
+            int dy[]={1,-1,0,0};
+            //finding the four way individually connected island//
+            for(int k=0;k<4;++k){
+                int ni=i+dx[k];
+                int nj=j+dy[k];
+                if(ni>=0 && nj>=0 && ni<5 && nj<5){
+                s.insert(grid[ni][nj]);
+                }
+            }
+            int a=1;
+            for(auto integ:s){
+                a=a + color_count[integ];
+            }
+          if(make_largest_island <a){
+            make_largest_island=a;
+          }  
+        }
+    }
+ }
+ cout<<"after inserting one in one vacant cell the maximum size of island is "<<make_largest_island;
+ return 0;
+}
